@@ -17,13 +17,14 @@ class Conexion {
 				print "ERROR: " . $ex -> getMessage() . "<br>"; //errores
 				die(); //cerrar todo si da error
 			}
+
+
 		}
 	}
 
 	public static function cerrar_conexion() {
 		if (isset(self::$conexion)) {
 			self::$conexion = null; //destruir la conexion
-
 		}
 	}
 
