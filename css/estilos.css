@@ -1,36 +1,46 @@
-html,body{
-	height: 100%;
-	font-family: 'Lato', sans-serif;
+html, body {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
 }
-.full-height{
-	height: 100%;
+
+.full-height {
+    height: 100%;
 }
-.lato{
-	font-family: 'Lato', sans-serif;
+
+.lato {
+    font-family: 'Lato', sans-serif;
 }
-.pacifico{
-	font-family: 'Pacifico', cursive;
+
+.pacifico {
+    font-family: 'Pacifico', cursive;
 }
+
 .navbar {
     background-color: #F7F7F7 !important;
 }
 
 .navbar-brand:link, .navbar-brand:visited {
-    color: #840000 !important;
+    color: #00FFB5 !important;
 }
 
 .navbar-brand:hover, .navbar-brand:active {
     color: black !important;
 }
+
 .big {
-  font-size: 35px;
+    font-size: 30px !important;
 }
 
 .mediano {
-	font-size: 20px; 
+    font-size: 20px;
 }
 
 .panel-heading {
-    background-color: #840000 !important;
-    color: white !important;
+    background-color: #00FFB5 !important;
+    color: #313131 !important;
+}
+
+.jumbotron {
+    background-color: #00FFB5 !important;
+    color: #313131 !important;
 }

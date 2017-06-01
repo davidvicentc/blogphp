@@ -14,12 +14,9 @@
 			echo "<title>$titulo</title>";
 
 		?>
-		<title>Ideas Promo</title>
 
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/hover-min.css">
-		<link href='http://fonts.googleapis.com/css?family=Pacifico', rel='stylesheet', type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Lato:300,400', rel='stylesheet', type='text/css'>
 		<link rel="stylesheet" href="css/estilos.css">
 	</head>
 	<body>

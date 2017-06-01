@@ -15,7 +15,7 @@ Conexion::cerrar_conexion();
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="index.php" class="navbar-brand pacifico big">Jassiel Blog</a>
+			<a href="index.php" class="navbar-brand big">Jassiel Blog</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
