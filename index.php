@@ -24,7 +24,15 @@ include_once 'plantillas/navbar.inc.php';
 						  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> buscar
 						</div>
 						<div class="panel-body">
-						  <p>Hola</p>
+						  <form role="form">
+								<div class="form-group">
+									<label>¿Que estas buscando?</label>
+									<input type="text" class="form-control">
+								</div>
+								<div class="form-group text-center">
+									<button type="button" name="buscar" class="btn-search"><span>Buscar</span></button>
+								</div>
+							</form>
 						</div>
 					 </div>
 				  </div>

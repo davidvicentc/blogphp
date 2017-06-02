@@ -102,9 +102,12 @@ button:active {
 .yellow span { 
     background:#DBDD37;
     }
-.celeste { 
-    background:#00FFB5;
-    }
-.celeste span { 
-    background:#00FFB5;
-    }
+.btn-search {
+    background-color:#587430;
+}
+.btn-search span {
+    border-radius:8px;
+    display:block;
+    padding:10px 100px;
+    background:#8fc245;
+}
