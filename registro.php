@@ -62,8 +62,8 @@ include_once 'plantillas/navbar.inc.php';
 							</div>
 							<br>
 							<div class="form-group text-center">
-								<button type="submit" name="enviar" class="btn btn-success">Enviar</button>
-								<button type="reset" class="btn btn-success">Limpiar</button>
+								<button type="submit" name="enviar" class="green"><span>Enviar</span></button>
+								<button type="reset" class="green"><span>limpiar</span></button>
 							</div>
 						</form>
 					</div>
