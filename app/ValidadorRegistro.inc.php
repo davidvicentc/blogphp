@@ -2,6 +2,9 @@
 
 class ValidadorRegistro {
 
+	private $aviso_inicio;
+	private $aviso_cierre;
+
 	private $nombre;
 	private $email;
 
@@ -11,6 +14,9 @@ class ValidadorRegistro {
 	private $error_clave2;
 
 	public function __construct($nombre, $email, $clave1, $clave2) {
+		$this -> aviso_inicio = "<br><div class='alert alert-danger' role='alert'>"; //mostrar el error con bootstrap
+		$this -> aviso_cierre = "</div>";
+
 		$this -> nombre = "";
 		$this -> email = "";
 
@@ -103,6 +109,50 @@ class ValidadorRegistro {
 	public function obtener_error_clave2() {
 		return $this -> error_clave2;
 	}
+
+	public function mostrar_nombre() { //imprimir el nombre por si se equivoca el usuario, 
+		if ($this -> nombre !== "") {
+			echo 'value="' . $this -> nombre . '"';
+		}
+	}
+
+	public function mostrar_error_nombre() { //imprimir el error en pantalla
+		if ($this -> error_nombre !== "") {
+			echo $this -> aviso_inicio . $this -> error_nombre . $this -> aviso_cierre;
+		}
+	}
+
+	public function mostrar_email() { //imprimir el email por si se equivoca el usuario, 
+		if ($this -> email !== "") {
+			echo 'value="' . $this -> email . '"';
+		}
+	}
+
+	public function mostrar_error_email() { //imprimir el error en pantalla
+		if ($this -> error_email !== "") {
+			echo $this -> aviso_inicio . $this -> error_email . $this -> aviso_cierre;
+		}
+	}
+
+	public function mostrar_error_clave1() { //imprimir el error en pantalla
+		if ($this -> error_clave1 !== "") {
+			echo $this -> aviso_inicio . $this -> error_clave1 . $this -> aviso_cierre;
+		}
+	}
+	public function mostrar_error_clave2() { //imprimir el error en pantalla
+		if ($this -> error_clave2 !== "") {
+			echo $this -> aviso_inicio . $this -> error_clave2 . $this -> aviso_cierre;
+		}
+	}
+
+	public function registro_validado() { //si todo esta bien imprimir arriba "todo correcto"
+		if ($this -> error_nombre === "" && $this -> error_email === "" && $this -> error_clave1 === "" && $this -> error_clave2 === "") {
+			return true;
+		} else {
+			return false;
+		}
+	}
+		
 }
 
 

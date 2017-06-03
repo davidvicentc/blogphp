@@ -3,7 +3,7 @@
 include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 
-	$titulo = 'Blog jassiel';
+    $titulo = 'Blog jassiel';
 
 include_once 'plantillas/documento-declaracion.inc.php';
 include_once 'plantillas/navbar.inc.php';
@@ -64,6 +64,6 @@ include_once 'plantillas/navbar.inc.php';
 			 </div>
 		  </div>
 		</div>
-	<?php 
-		include_once 'plantillas/documento-cierre.inc.php';
-	 ?>
+	<?php
+        include_once 'plantillas/documento-cierre.inc.php';
+	?>

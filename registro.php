@@ -4,6 +4,14 @@ include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 include_once 'app/ValidadorRegistro.inc.php';
 
+if (isset($_POST['enviar'])) { //para que el validador solo valide el formulario cuando el usuario de click en el boton "enviar"
+	$validador = new ValidadorRegistro($_POST['nombre'], $_POST['email'], $_POST['clave1'], $_POST['clave2']); //todo lo que esta dentro del array de la variable $_POST son los nombre que le dimos a los inputs
+	if ($validador -> registro_validado()) {
+	echo "TODO CORRECTO!";
+	}
+}
+
+
 $titulo = 'Registro';
 
 include_once 'plantillas/documento-declaracion.inc.php';
@@ -44,31 +52,18 @@ include_once 'plantillas/navbar.inc.php';
 					</div>
 					<div class="panel-body">
 						<form role="form" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-							<div class="form-group">
-								<label>Nombre de usuario</label>
-								<input type="text" name="nombre" placeholder="Coloca tu nombre de usuario" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Correo electronico</label>
-								<input type="email" name="email" placeholder="Coloca tu correo electronico" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Contraseña</label>
-								<input type="password" name="clave1" placeholder="Coloca tu contraseña" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Repite la contraseña</label>
-								<input type="password" name="clave2" placeholder="Coloca tu contraseña" class="form-control">
-							</div>
-							<br>
-							<div class="form-group text-center">
-								<button type="submit" name="enviar" class="green"><span>Enviar</span></button>
-								<button type="reset" class="green"><span>Enviar</span></button>
-							</div>
+							<?php 
+							if (isset($_POST['enviar'])) {
+								include_once 'plantillas/registro_validado.inc.php';
+							} else {
+								include_once 'plantillas/registro_vacio.inc.php';
+							}
+
+							 ?>
 						</form>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</div>
 </div>
