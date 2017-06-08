@@ -1,14 +1,29 @@
 <?php
 
 include_once 'app/Conexion.inc.php';
+include_once 'app/Usuario.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 include_once 'app/ValidadorRegistro.inc.php';
 
 if (isset($_POST['enviar'])) { //para que el validador solo valide el formulario cuando el usuario de click en el boton "enviar"
-	$validador = new ValidadorRegistro($_POST['nombre'], $_POST['email'], $_POST['clave1'], $_POST['clave2']); //todo lo que esta dentro del array de la variable $_POST son los nombre que le dimos a los inputs
+	Conexion :: abrir_conexion();
+
+	$validador = new ValidadorRegistro($_POST['nombre'], $_POST['email'], $_POST['clave1'], $_POST['clave2'], Conexion :: obtener_conexion()); //todo lo que esta dentro del array de la variable $_POST son los nombre que le dimos a los inputs
 	if ($validador -> registro_validado()) {
-	echo "TODO CORRECTO!";
+		$usuario = new Usuario('', $validador -> obtener_nombre(), 
+			$validador -> obtener_email(), 
+			password_hash($validador -> obtener_clave(), PASSWORD_DEFAULT), //password default algoritmo para encriptar contraseñas
+			'', 
+			'');
+
+		$usuario_insertado = RepositorioUsuario :: insertar_usuario(Conexion::obtener_conexion(), $usuario);
+
+		if ($usuario_insertado) {
+			//redireccionaremos a la pagina de login
+		}
 	}
+
+	Conexion :: cerrar_conexion();
 }
 
 

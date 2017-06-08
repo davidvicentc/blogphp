@@ -9,7 +9,7 @@ class Conexion {
 			try {
 				include_once 'config.inc.php';
 
-				self::$conexion = new PDO("mysql:host=$nombre_servidor; dbname=$nombre_base_datos", $nombre_usuario, $password); //esto es para conectarse y dar los datos de la base de datos
+				self::$conexion = new PDO('mysql:host='.NOMBRE_SERVIDOR. '; dbname='.NOMBRE_DB, NOMBRE_USUARIO, PASSWORD); //esto es para conectarse y dar los datos de la base de datos
 				self::$conexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //para que pdo nos de los errores
 				self::$conexion -> exec("SET CHARACTER SET utf8");
 

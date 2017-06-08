@@ -3,7 +3,7 @@
 include_once 'app/Conexion.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 
-    $titulo = 'Blog jassiel';
+    $titulo = 'David Jassiel';
 
 include_once 'plantillas/documento-declaracion.inc.php';
 include_once 'plantillas/navbar.inc.php';
@@ -26,8 +26,8 @@ include_once 'plantillas/navbar.inc.php';
 						<div class="panel-body">
 						  <form role="form">
 								<div class="form-group">
-									<label>¿Que estas buscando?</label>
-									<input type="text" class="form-control">
+									<label>Busqueda</label>
+									<input type="text" class="form-control" placeholder="¿Que estas buscando?">
 								</div>
 								<div class="form-group text-center">
 									<button type="button" name="buscar" class="btn-search"><span>Buscar</span></button>

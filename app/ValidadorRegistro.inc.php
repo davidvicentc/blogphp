@@ -1,4 +1,5 @@
 <?php 
+include_once 'RepositorioUsuario.inc.php';
 
 class ValidadorRegistro {
 
@@ -7,23 +8,29 @@ class ValidadorRegistro {
 
 	private $nombre;
 	private $email;
+	private $clave;
 
 	private $error_nombre;
 	private $error_email;
 	private $error_clave1;
 	private $error_clave2;
 
-	public function __construct($nombre, $email, $clave1, $clave2) {
+	public function __construct($nombre, $email, $clave1, $clave2, $conexion) {
 		$this -> aviso_inicio = "<br><div class='alert alert-danger' role='alert'>"; //mostrar el error con bootstrap
 		$this -> aviso_cierre = "</div>";
 
 		$this -> nombre = "";
 		$this -> email = "";
+		$this -> clave = "";
 
-		$this -> error_nombre = $this -> validar_nombre($nombre);
-		$this -> error_email = $this -> validar_email($email);
+		$this -> error_nombre = $this -> validar_nombre($conexion, $nombre);
+		$this -> error_email = $this -> validar_email($conexion, $email);
 		$this -> error_clave1 = $this -> validar_clave1($clave1);
 		$this -> error_clave2 = $this -> validar_clave2($clave1, $clave2);
+
+		if ($this -> error_clave1 === "" && $this -> error_clave2 === "") {
+			$this -> clave = $clave1;
+		}
 	}
 
 	private function variable_iniciada($variable) {
@@ -34,7 +41,7 @@ class ValidadorRegistro {
 		}
 	}
 
-	private function validar_nombre($nombre) {
+	private function validar_nombre($conexion, $nombre) {
 		if (!$this -> variable_iniciada($nombre)) { //si no esta iniciada la variable. coloca el mensaje que esta en el return
 			return "Debes escribir un nombre de usuario";
 		} else {
@@ -49,14 +56,22 @@ class ValidadorRegistro {
 			return "el nombre de usuario tiene que tener menos de 24 caracteres";
 		}
 
+		if (RepositorioUsuario :: nombre_existe($conexion, $nombre)) {
+			return "Este nombre de usuario ya esta en uso, por favor, prueba con otro nombre.";
+		}
+
 		return ""; // si todo esta correcto devuelve en mensaje vacio
 	}
 
-	private function validar_email($email) {
+	private function validar_email($conexion, $email) {
 		if (!$this -> variable_iniciada($email)) {
 			return "debes escribir un correo electronico"; 
 		} else {
 			$this -> email = $email;
+		}
+
+		if (RepositorioUsuario ::email_existe($conexion, $email)) {
+			return "Este email ya esta en uso, Por favor, prueba con otro email, o <a href='#'>¿Desea recuperar su contraseña?</a>";
 		}
 
 		return "";
@@ -90,8 +105,12 @@ class ValidadorRegistro {
 		return $this -> nombre;
 	}
 
-	public function obtener_email () {
+	public function obtener_email() {
 		return $this -> email;
+	}
+
+	public function obtener_clave() {
+		return $this -> clave;
 	}
 
 	public function obtener_error_nombre() {
