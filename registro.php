@@ -4,6 +4,7 @@ include_once 'app/Conexion.inc.php';
 include_once 'app/Usuario.inc.php';
 include_once 'app/RepositorioUsuario.inc.php';
 include_once 'app/ValidadorRegistro.inc.php';
+include_once 'app/Redireccion.inc.php';
 
 if (isset($_POST['enviar'])) { //para que el validador solo valide el formulario cuando el usuario de click en el boton "enviar"
 	Conexion :: abrir_conexion();
@@ -19,7 +20,8 @@ if (isset($_POST['enviar'])) { //para que el validador solo valide el formulario
 		$usuario_insertado = RepositorioUsuario :: insertar_usuario(Conexion::obtener_conexion(), $usuario);
 
 		if ($usuario_insertado) {
-			//redireccionaremos a la pagina de login
+			//redireccionaremos a la pagina de registro-correcto
+			Redireccion::redirigir(RUTA_REGISTRO_CORRECTO. '?nombre=' . $usuario -> obtener_nombre());
 		}
 	}
 

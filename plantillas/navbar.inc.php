@@ -15,13 +15,13 @@ Conexion::cerrar_conexion();
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="index.php" class="navbar-brand big">Jassiel Blog</a>
+			<a href="<?php echo SERVIDOR ?>" class="navbar-brand big">Jassiel Blog</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#">Entradas</a></li>
-				<li><a href="#">Favorito</a></li>
-				<li><a href="#">Autores</a></li>
+				<li><a href="<?php echo RUTA_ENTRADAS ?>">Entradas</a></li>
+				<li><a href="<?php echo RUTA_FAVORITOS ?>">Favoritos</a></li>
+				<li><a href="<?php echo RUTA_AUTORES ?>">Autores</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
@@ -32,8 +32,8 @@ Conexion::cerrar_conexion();
 					?>
 					</a>
 				</li>
-				<li><a href="#">Iniciar Sesión <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
-				<li><a href="registro.php">Registrarse <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+				<li><a href="<?php echo RUTA_LOGIN ?>">Iniciar Sesión <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span></a></li>
+				<li><a href="<?php echo RUTA_REGISTRO ?>">Registrarse <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
 			</ul>
 		</div>
 	</div>
