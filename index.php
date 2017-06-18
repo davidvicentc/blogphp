@@ -14,7 +14,7 @@ include_once 'plantillas/navbar.inc.php';
 			 <p>Es mi test de creacion de blog en el lenguaje PHP</p>
 		  </div>
 		</div>
-		<div class="container">
+		<div class="container text-center">
 		  <div class="row">
 			 <div class="col-md-4">
 				<div class="row">
@@ -30,7 +30,7 @@ include_once 'plantillas/navbar.inc.php';
 									<input type="text" class="form-control" placeholder="¿Que estas buscando?">
 								</div>
 								<div class="form-group text-center">
-									<button type="button" name="buscar" class="btn-search"><span>Buscar</span></button>
+									<button type="button" name="buscar" class="btn-success btn"><span>Buscar</span></button>
 								</div>
 							</form>
 						</div>

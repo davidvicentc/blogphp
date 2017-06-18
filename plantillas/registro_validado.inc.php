@@ -44,12 +44,12 @@
 </div>
 <br>
 <div class="form-group text-center">
-	<button class="green" name="enviar" type="submit">
+	<button class="btn btn-success" name="enviar" type="submit">
 		<span>
 			Enviar
 		</span>
 	</button>
-	<button class="green" type="reset">
+	<button class="btn btn-success" type="reset">
 		<span>
 			Limpiar
 		</span>

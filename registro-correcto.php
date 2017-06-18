@@ -32,3 +32,6 @@ include_once 'plantillas/navbar.inc.php';
 		</div>
 	</div>
 </div>
+<?php
+include_once 'plantillas/documento-cierre.inc.php';
+?>
